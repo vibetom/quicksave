@@ -72,10 +72,17 @@ def ask_json(model_key: str, system: str, user: str, **kw) -> dict | list:
                "No prose, no markdown fences.", user, json_only=True, **kw)
     text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
     start = min((i for i in (text.find("{"), text.find("[")) if i >= 0), default=0)
-    # raw_decode parses one value at `start` and ignores anything after it;
-    # strict=False allows raw newlines/tabs inside string values.
-    obj, _ = json.JSONDecoder(strict=False).raw_decode(text, start)
-    return obj
+    try:
+        # raw_decode parses one value at `start` and ignores anything after
+        # it; strict=False allows raw newlines/tabs inside string values.
+        obj, _ = json.JSONDecoder(strict=False).raw_decode(text, start)
+        return obj
+    except json.JSONDecodeError as e:
+        # Surface the malformed region in the log so failures are debuggable.
+        ctx = text[max(0, e.pos - 200):e.pos + 200]
+        raise RuntimeError(
+            f"{model_key} returned unparseable JSON ({e.msg} at char {e.pos}). "
+            f"Context around the error:\n...{ctx}...") from e
 
 
 def slugify(title: str) -> str:
