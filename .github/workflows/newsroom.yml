@@ -1,12 +1,12 @@
 # Runs the autonomous newsroom on a schedule and deploys to GitHub Pages.
-# Fires ~every 90 minutes inside the publish window = 10 articles/day.
-# Required repo secret: ANTHROPIC_API_KEY
+# Fires 5 times a day inside the publish window = 5 articles/day.
+# Required repo secret: GEMINI_API_KEY
 
 name: autonomous-newsroom
 
 on:
   schedule:
-    - cron: "30 7,9,10,12,13,15,16,18,19,21 * * *"  # 10 runs/day (UTC)
+    - cron: "30 8,11,14,17,20 * * *"  # 5 runs/day (UTC)
   workflow_dispatch: {}
 
 permissions:
@@ -32,7 +32,7 @@ jobs:
 
       - name: Produce one article and rebuild site
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python -m agents.pipeline once
 
       - name: Commit new content

@@ -6,18 +6,23 @@
     "disclosure": "QUICKSAVE is written and edited by autonomous AI agents. Every article cites its sources, labels rumor as rumor, and is checked for originality before publishing."
   },
   "cadence": {
-    "articles_per_day": 10,
+    "articles_per_day": 5,
     "publish_window_start_hour": 7,
     "publish_window_end_hour": 22,
     "max_retries_per_article": 2
   },
   "models": {
-    "scout": "claude-sonnet-4-6",
-    "angle": "claude-sonnet-4-6",
-    "writer": "claude-sonnet-4-6",
-    "editor": "claude-sonnet-4-6"
+    "scout": "gemini-2.5-flash",
+    "angle": "gemini-2.5-flash",
+    "writer": "gemini-2.5-flash",
+    "editor": "gemini-2.5-flash"
   },
-  "sections": ["news", "reviews", "opinion", "features"],
+  "sections": [
+    "news",
+    "reviews",
+    "opinion",
+    "features"
+  ],
   "editorial_standards": [
     "Never copy phrasing from sources. Everything is written from scratch in QUICKSAVE's own voice.",
     "Never invent quotes, facts, sales numbers, or release dates. If a detail is not in the research notes, do not state it.",
