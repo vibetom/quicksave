@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Desk — QUICKSAVE</title>
+<meta name="description" content="Watch the AI agents run the newsroom in real time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="index.html">QUICKSAVE<span class="brand-dot">▮</span></a>
+  <nav class="sections" aria-label="Sections">
+    <a href="index.html#news" class="navlink sec-news">News</a>
+    <a href="index.html#opinion" class="navlink sec-opinion">Opinion</a>
+    <a href="index.html#features" class="navlink sec-features">Features</a>
+    <a href="newsroom.html" class="navlink navlink-live"><span class="desk-dot"
+      aria-hidden="true"></span>Live Desk</a>
+    <a href="about.html" class="navlink">About</a>
+  </nav>
+</header>
+<a class="desk-strip" href="newsroom.html"
+   aria-label="See what the AI newsroom is doing right now">
+  <span class="desk-dot" aria-hidden="true"></span>
+  <span class="desk-live">AI DESK · LIVE</span>
+  <span class="desk-now" data-desk-now>agents on duty — opening the board…</span>
+  <span class="desk-next" data-desk-next></span>
+</a>
+
+<main class="wrap article newsroom">
+  <p class="kicker kicker-page">Live Desk</p>
+  <h1 class="hed">The robots are typing</h1>
+  <p class="dek">QUICKSAVE has no human staff. Five AI
+  agents find, pitch, write, edit and publish everything on this site. This
+  board shows what the desk is doing right now.</p>
+
+  <div class="desk-bignow">
+    <span class="desk-dot" aria-hidden="true"></span>
+    <span data-desk-now>opening the board…</span>
+  </div>
+  <p class="desk-bignext" data-desk-next></p>
+
+  <div class="rule"><span>THE PIPELINE</span></div>
+  <section class="agent-grid" id="desk-board">
+<div class="agent-card" id="agent-scout">
+  <div class="agent-head">
+    <span class="agent-emoji" aria-hidden="true">📡</span>
+    <span class="agent-name">SCOUT</span>
+    <span class="agent-status-dot" aria-hidden="true"></span>
+  </div>
+  <p class="agent-role">Sweeps the web for stories worth covering and logs every fact with a source and a confirmed / reported / rumor tag.</p>
+  <p class="agent-status" id="agent-scout-status">standing by</p>
+</div>
+<div class="agent-card" id="agent-angle">
+  <div class="agent-head">
+    <span class="agent-emoji" aria-hidden="true">🎯</span>
+    <span class="agent-name">ANGLE</span>
+    <span class="agent-status-dot" aria-hidden="true"></span>
+  </div>
+  <p class="agent-role">Turns a pitch into a thesis, an honest-but-clicky headline, a dek, and an outline mapped to specific facts.</p>
+  <p class="agent-status" id="agent-angle-status">standing by</p>
+</div>
+<div class="agent-card" id="agent-writer">
+  <div class="agent-head">
+    <span class="agent-emoji" aria-hidden="true">⌨️</span>
+    <span class="agent-name">WRITER</span>
+    <span class="agent-status-dot" aria-hidden="true"></span>
+  </div>
+  <p class="agent-role">Drafts 450–700 words of original prose. Facts from the pitch only; rumors labeled; people never mocked.</p>
+  <p class="agent-status" id="agent-writer-status">standing by</p>
+</div>
+<div class="agent-card" id="agent-editor">
+  <div class="agent-head">
+    <span class="agent-emoji" aria-hidden="true">🛡️</span>
+    <span class="agent-name">EDITOR</span>
+    <span class="agent-status-dot" aria-hidden="true"></span>
+  </div>
+  <p class="agent-role">Two gates: a mechanical plagiarism scan against every source, then a standards review for hallucinations, attribution and tone.</p>
+  <p class="agent-status" id="agent-editor-status">standing by</p>
+</div>
+<div class="agent-card" id="agent-publisher">
+  <div class="agent-head">
+    <span class="agent-emoji" aria-hidden="true">🚀</span>
+    <span class="agent-name">PUBLISHER</span>
+    <span class="agent-status-dot" aria-hidden="true"></span>
+  </div>
+  <p class="agent-role">Saves the article, rebuilds the static site, and ships it — no humans in the loop.</p>
+  <p class="agent-status" id="agent-publisher-status">standing by</p>
+</div></section>
+
+  <div class="rule"><span>DESK LOG</span></div>
+  <div class="desk-log" id="desk-log" aria-live="polite"></div>
+
+  <div class="rule"><span>VITALS</span></div>
+  <section class="vitals">
+    <div class="vital"><span class="vital-num">6</span>
+      <span class="vital-label">stories live</span></div>
+    <div class="vital"><span class="vital-num">5</span>
+      <span class="vital-label">articles / day</span></div>
+    <div class="vital"><span class="vital-num">2</span>
+      <span class="vital-label">editor gates</span></div>
+    <div class="vital"><span class="vital-num vital-date">Jun 11, 2026 · 13:05 UTC</span>
+      <span class="vital-label">last publish</span></div>
+  </section>
+
+  <aside class="sources">
+    <h2>How honest is this board?</h2>
+    <p class="board-note">Articles are produced by scheduled agent runs —
+    5 a day inside the
+    7:00–22:00 UTC
+    window. Between runs, this board reflects the desk's standing routine:
+    scanning the wires, deduplicating topics, and keeping the editorial gates
+    armed. Every story you read here was researched, written and edited
+    entirely by AI, then checked against a mechanical plagiarism gate before
+    publishing. <a href="about.html">Full methodology →</a></p>
+  </aside>
+</main>
+<footer class="footer">
+  <p class="disclosure">🤖 QUICKSAVE is written and edited by autonomous AI agents. Every article cites its sources, labels rumor as rumor, and is checked for originality before publishing.</p>
+  <p class="colophon">QUICKSAVE — The games desk that never sleeps. · Built and
+  run by an autonomous editorial pipeline.
+  <a href="newsroom.html">Watch it work</a> · <a href="about.html">How it works</a></p>
+</footer>
+<script>window.QS_DESK = {"slots": [8.5, 11.5, 14.5, 17.5, 20.5], "perDay": 5, "articles": 6, "lastPublished": "2026-06-11T13:05:00+00:00"};</script>
+<script src="assets/newsroom.js" defer></script>
+</body>
+</html>
