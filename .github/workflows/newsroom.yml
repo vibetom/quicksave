@@ -1,0 +1,58 @@
+# Runs the autonomous newsroom on a schedule and deploys to GitHub Pages.
+# Fires ~every 90 minutes inside the publish window = 10 articles/day.
+# Required repo secret: ANTHROPIC_API_KEY
+
+name: autonomous-newsroom
+
+on:
+  schedule:
+    - cron: "30 7,9,10,12,13,15,16,18,19,21 * * *"  # 10 runs/day (UTC)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: newsroom
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Produce one article and rebuild site
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m agents.pipeline once
+
+      - name: Commit new content
+        run: |
+          git config user.name "quicksave-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add content public
+          git diff --cached --quiet || git commit -m "auto: publish article"
+          git push
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

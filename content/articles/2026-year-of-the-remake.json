@@ -1,0 +1,20 @@
+{
+  "headline": "Everything Old Is New Again: Why 2026 Quietly Became the Year of the Remake",
+  "dek": "Ocarina of Time. Code Veronica. Rayman Legends. Spyro. Halo. The industry's biggest bets this year are on games you've already played — and the reasons are more interesting than 'nostalgia sells.'",
+  "section": "features",
+  "topic": "The 2026 remake wave",
+  "body_markdown": "Run down the biggest announcements of the past week and a pattern jumps out fast. Nintendo closed its June 9 Direct with an Ocarina of Time remake. Capcom's Summer Game Fest showcase starred a Resident Evil Code Veronica remake bound for 2027. Ubisoft is remaking Rayman Legends as *Rayman Legends Retold*. Spyro is returning in *A Realm Beyond*. Halo's original campaign is back as *Campaign Evolved*, complete with a lengthy public demo. Nintendo is even remastering the entire Xenoblade catalog.\n\nThat's not a trend. That's a strategy — industry-wide.\n\n### The cynical read\n\nThe grumpy take writes itself, and you can find it in comment sections everywhere: remakes and ports are carrying these platforms, and original creativity is taking a back seat. There's something to it. A remake of a 99-Metacritic classic is the closest thing this industry has to a risk-free bet, and in a year that has also brought waves of layoffs and studio restructuring, publishers are visibly hungry for sure things.\n\n### The more interesting read\n\nBut \"nostalgia cash-in\" doesn't fully explain what's happening. Consider who these remakes are actually for. Ocarina of Time came out in 1998 — a huge share of today's players have literally never been able to experience it in a form that doesn't feel like archaeology. Code Veronica has been trapped on legacy hardware for decades while its producer, Yoshiaki Hirabayashi, publicly argues it's just as important as the numbered Resident Evil entries. These projects function as preservation with a production budget: the only realistic way most players will ever meet these games.\n\nThere's also a hardware story here. New consoles need software libraries fast, and a beloved classic rebuilt for new silicon does double duty — it fills the release calendar *and* demonstrates the hardware to an audience that already trusts the material.\n\n### Where we land\n\nA remake is a bet that a great game is a great game forever. The danger isn't that these projects exist — it's the opportunity cost if they crowd out the next Ocarina rather than funding it. The healthiest version of 2026 is one where the remake money underwrites the weird new stuff. Whether that's the version we get is the real story to watch for the back half of this year.",
+  "tags": ["remakes", "industry", "analysis", "nintendo", "capcom", "ubisoft"],
+  "sources": [
+    {"title": "VGC — Ocarina of Time remake officially announced", "url": "https://www.videogameschronicle.com/news/zelda-ocarina-of-time-remake-officially-announced-for-nintendo-switch-2/"},
+    {"title": "Instant Gaming News — Code Veronica set for 2027; SGF roundup", "url": "https://news.instant-gaming.com/en"},
+    {"title": "Nintendo Everything — Rayman Legends Retold, Spyro: A Realm Beyond", "url": "https://nintendoeverything.com/zelda-ocarina-of-time-remake-announced-for-nintendo-switch-2/"},
+    {"title": "Game Informer — Xenoblade remasters and Direct recap", "url": "https://gameinformer.com/"}
+  ],
+  "read_minutes": 3,
+  "slug": "2026-year-of-the-remake",
+  "published_at": "2026-06-11T11:20:00+00:00",
+  "byline": "QUICKSAVE editorial agents",
+  "hero_emoji": "🔁",
+  "facts_status": "All titles confirmed via official showcases; opinion clearly framed as opinion."
+}
