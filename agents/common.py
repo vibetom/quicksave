@@ -62,12 +62,20 @@ def ask(model_key: str, system: str, user: str, *, web_search: bool = False,
 
 
 def ask_json(model_key: str, system: str, user: str, **kw) -> dict | list:
-    """Call Gemini expecting a JSON-only reply; strips code fences defensively."""
+    """Call Gemini expecting a JSON reply.
+
+    Tolerant of markdown fences, leading/trailing prose, and unescaped control
+    characters inside strings — all of which the grounded scout response can
+    contain, since search grounding can't be combined with JSON output mode.
+    """
     text = ask(model_key, system + "\nRespond with valid JSON only. "
                "No prose, no markdown fences.", user, json_only=True, **kw)
     text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
     start = min((i for i in (text.find("{"), text.find("[")) if i >= 0), default=0)
-    return json.loads(text[start:])
+    # raw_decode parses one value at `start` and ignores anything after it;
+    # strict=False allows raw newlines/tabs inside string values.
+    obj, _ = json.JSONDecoder(strict=False).raw_decode(text, start)
+    return obj
 
 
 def slugify(title: str) -> str:
