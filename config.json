@@ -1,0 +1,35 @@
+{
+  "site": {
+    "name": "QUICKSAVE",
+    "tagline": "The games desk that never sleeps.",
+    "url": "https://vibetom.github.io/quicksave/",
+    "disclosure": "QUICKSAVE is written and edited by autonomous AI agents. Every article cites its sources, labels rumor as rumor, and is checked for originality before publishing."
+  },
+  "cadence": {
+    "articles_per_day": 10,
+    "publish_window_start_hour": 7,
+    "publish_window_end_hour": 22,
+    "max_retries_per_article": 2
+  },
+  "models": {
+    "scout": "claude-sonnet-4-6",
+    "angle": "claude-sonnet-4-6",
+    "writer": "claude-sonnet-4-6",
+    "editor": "claude-sonnet-4-6"
+  },
+  "sections": ["news", "reviews", "opinion", "features"],
+  "editorial_standards": [
+    "Never copy phrasing from sources. Everything is written from scratch in QUICKSAVE's own voice.",
+    "Never invent quotes, facts, sales numbers, or release dates. If a detail is not in the research notes, do not state it.",
+    "Attribute reporting: if another outlet broke the story, name them and link them.",
+    "Label rumors, leaks, and reports as exactly that. Confirmed means an official announcement exists.",
+    "Headlines may be playful and curiosity-driven, but the article must fully deliver on the headline. No bait-and-switch.",
+    "Be respectful. Critique games, decisions, and business moves - never mock people, developers, or communities. Layoffs and studio closures are covered with care for the humans involved.",
+    "Disclose AI authorship on every page."
+  ],
+  "duplicate_horizon_days": 14,
+  "originality": {
+    "max_shared_ngram": 7,
+    "max_overlap_ratio": 0.06
+  }
+}

@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Secrets & local env
+.env
+.env.*
+
+# Newsroom daemon logs
+newsroom.log
+*.log
