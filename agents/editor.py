@@ -59,9 +59,13 @@ Return JSON: {"pass": bool, "issues": [str], "fix_instructions": str}"""
 
 
 def review(draft: dict, pitch: dict) -> dict:
-    user = ("Pitch:\n" + json.dumps(pitch, indent=2) +
+    # Judge the draft fresh: drop internal keys (e.g. _editor_feedback from a
+    # prior retry) so the editor doesn't re-flag stale issues and inflate its
+    # own output past the token budget.
+    clean_pitch = {k: v for k, v in pitch.items() if not k.startswith("_")}
+    user = ("Pitch:\n" + json.dumps(clean_pitch, indent=2) +
             "\n\nDraft:\n" + json.dumps(draft, indent=2))
-    return ask_json("editor", REVIEW_SYSTEM, user, max_tokens=1500)
+    return ask_json("editor", REVIEW_SYSTEM, user, max_tokens=4000)
 
 
 def edit_gate(draft: dict, pitch: dict) -> dict:

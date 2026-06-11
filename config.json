@@ -34,7 +34,7 @@
   ],
   "duplicate_horizon_days": 14,
   "originality": {
-    "max_shared_ngram": 7,
-    "max_overlap_ratio": 0.06
+    "max_shared_ngram": 10,
+    "max_overlap_ratio": 0.15
   }
 }
