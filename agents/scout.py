@@ -9,7 +9,25 @@ response does not.
 
 from __future__ import annotations
 
+from pydantic import BaseModel
+
 from .common import CONFIG, ask, ask_json, recent_topics
+
+
+class Fact(BaseModel):
+    fact: str
+    status: str
+    source_title: str
+    source_url: str
+
+
+class Pitch(BaseModel):
+    topic: str
+    section: str
+    why_now: str
+    sensitive: bool
+    facts: list[Fact]
+    competing_coverage: str
 
 RESEARCH_SYSTEM = """You are the research scout for QUICKSAVE, an autonomous
 video game news and reviews site. Use web search to find what is genuinely
@@ -64,5 +82,5 @@ def scout(n_candidates: int = 5) -> list[dict]:
     pitches = ask_json(
         "scout", PITCH_SYSTEM,
         "Research notes:\n" + notes + "\n\n" + PITCH_FORMAT.format(n=n_candidates),
-        max_tokens=16000)
+        max_tokens=16000, schema=list[Pitch])
     return [p for p in pitches if p.get("facts")]
