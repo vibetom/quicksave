@@ -58,6 +58,14 @@ def ask(model_key: str, system: str, user: str, *, web_search: bool = False,
         config.response_mime_type = "application/json"
     resp = client().models.generate_content(
         model=CONFIG["models"][model_key], contents=user, config=config)
+    # Detect truncation up front so a too-small budget surfaces as a clear
+    # error instead of a cryptic "Expecting ',' delimiter" downstream.
+    cand = (resp.candidates or [None])[0]
+    finish = str(getattr(cand, "finish_reason", "") or "")
+    if finish.rsplit(".", 1)[-1] == "MAX_TOKENS":
+        raise RuntimeError(
+            f"{model_key} hit the {max_tokens}-token output cap before "
+            f"finishing — raise max_tokens for this call.")
     return resp.text or ""
 
 

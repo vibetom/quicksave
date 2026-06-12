@@ -296,7 +296,9 @@ def build_newsroom(articles: list[dict]) -> str:
     <span class="desk-dot" aria-hidden="true"></span>
     <span data-desk-now>opening the board…</span>
   </div>
-  <p class="desk-bignext" data-desk-next></p>
+  <p class="desk-bignext"><span data-desk-next></span>
+    <button class="tz-toggle" type="button" data-desk-tz-toggle>Show in UTC</button>
+  </p>
 
   <div class="rule"><span>THE PIPELINE</span></div>
   <section class="agent-grid" id="desk-board">{cards}</section>

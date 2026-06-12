@@ -40,7 +40,7 @@ def write_article(pitch: dict, angle: dict) -> dict:
         "\"sources\": [{\"title\": str, \"url\": str}], "
         "\"read_minutes\": int}"
     )
-    draft = ask_json("writer", system, user, max_tokens=4000)
+    draft = ask_json("writer", system, user, max_tokens=8000)
     draft["section"] = pitch.get("section", "news")
     draft["topic"] = pitch.get("topic", draft["headline"])
     return draft

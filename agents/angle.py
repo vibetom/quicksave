@@ -29,4 +29,4 @@ def develop_angle(pitch: dict) -> dict:
         "\n\nReturn JSON: {\"thesis\": str, \"headline\": str, \"dek\": str, "
         "\"outline\": [str, ...], \"tone_notes\": str}"
     )
-    return ask_json("angle", SYSTEM, user, max_tokens=2000)
+    return ask_json("angle", SYSTEM, user, max_tokens=4000)
