@@ -63,14 +63,16 @@ def ask(model_key: str, system: str, user: str, *, web_search: bool = False,
             config.response_schema = schema
     resp = client().models.generate_content(
         model=CONFIG["models"][model_key], contents=user, config=config)
-    # Detect truncation up front so a too-small budget surfaces as a clear
-    # error instead of a cryptic "Expecting ',' delimiter" downstream.
-    cand = (resp.candidates or [None])[0]
-    finish = str(getattr(cand, "finish_reason", "") or "")
-    if finish.rsplit(".", 1)[-1] == "MAX_TOKENS":
-        raise RuntimeError(
-            f"{model_key} hit the {max_tokens}-token output cap before "
-            f"finishing — raise max_tokens for this call.")
+    # Truncation only breaks JSON calls (a cut-off object won't parse). For
+    # grounded/plain-text calls — e.g. the scout's research notes — a partial
+    # response is still usable, so return whatever came back.
+    if json_only:
+        cand = (resp.candidates or [None])[0]
+        finish = str(getattr(cand, "finish_reason", "") or "")
+        if finish.rsplit(".", 1)[-1] == "MAX_TOKENS":
+            raise RuntimeError(
+                f"{model_key} hit the {max_tokens}-token output cap before "
+                f"finishing valid JSON — raise max_tokens for this call.")
     return resp.text or ""
 
 
@@ -106,7 +108,11 @@ def ask_json(model_key: str, system: str, user: str, **kw) -> dict | list:
 def slugify(title: str) -> str:
     s = unicodedata.normalize("NFKD", title).encode("ascii", "ignore").decode()
     s = re.sub(r"[^a-zA-Z0-9]+", "-", s).strip("-").lower()
-    return s[:72] or "untitled"
+    if len(s) > 72:
+        # Trim to the last whole word within the limit so the slug never ends
+        # on a dangling partial word or a trailing hyphen.
+        s = s[:72].rsplit("-", 1)[0]
+    return s.strip("-") or "untitled"
 
 
 def load_articles() -> list[dict]:

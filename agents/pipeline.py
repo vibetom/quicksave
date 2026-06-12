@@ -28,7 +28,13 @@ def log(msg: str) -> None:
 
 def produce_one() -> dict | None:
     log("SCOUT: searching the wire...")
-    pitches = scout(n_candidates=5)
+    try:
+        pitches = scout(n_candidates=5)
+    except Exception as e:
+        # A scout hiccup (search timeout, truncated structuring) is a quiet
+        # no-op for this slot, not a failed run — try again next slot.
+        log(f"SCOUT: research failed ({e!r}); nothing published this run.")
+        return None
     if not pitches:
         log("SCOUT: nothing publishable found.")
         return None
