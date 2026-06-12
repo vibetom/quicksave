@@ -76,7 +76,7 @@ def scout(n_candidates: int = 5) -> list[dict]:
         "scout", RESEARCH_SYSTEM,
         f"Find today's best story candidates for QUICKSAVE.\n\n"
         f"Recently covered (do NOT re-research these):\n{recent_block}",
-        web_search=True, max_tokens=6000)
+        web_search=True, max_tokens=12000)
 
     # Step 2: structure the notes in strict JSON mode (valid JSON guaranteed).
     pitches = ask_json(
