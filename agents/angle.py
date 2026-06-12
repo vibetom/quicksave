@@ -4,7 +4,17 @@ from __future__ import annotations
 
 import json
 
+from pydantic import BaseModel
+
 from .common import ask_json
+
+
+class Angle(BaseModel):
+    thesis: str
+    headline: str
+    dek: str
+    outline: list[str]
+    tone_notes: str
 
 SYSTEM = """You are the assignments editor for QUICKSAVE. You receive a
 scouted story (facts + what everyone else is saying) and develop OUR angle.
@@ -29,4 +39,4 @@ def develop_angle(pitch: dict) -> dict:
         "\n\nReturn JSON: {\"thesis\": str, \"headline\": str, \"dek\": str, "
         "\"outline\": [str, ...], \"tone_notes\": str}"
     )
-    return ask_json("angle", SYSTEM, user, max_tokens=4000)
+    return ask_json("angle", SYSTEM, user, max_tokens=4000, schema=Angle)

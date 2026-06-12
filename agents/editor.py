@@ -13,7 +13,16 @@ from __future__ import annotations
 import json
 import re
 
+from pydantic import BaseModel
+
 from .common import CONFIG, ask_json
+
+
+class Verdict(BaseModel):
+    approved: bool
+    issues: list[str]
+    fix_instructions: str
+
 
 _WORD = re.compile(r"[a-z0-9']+")
 
@@ -48,14 +57,24 @@ def originality_report(draft_text: str, source_texts: list[str]) -> dict:
 
 
 REVIEW_SYSTEM = """You are the standards editor for QUICKSAVE. Review the
-draft against the pitch. Fail the draft if ANY of these hold:
-- A factual claim does not appear in the pitch facts (hallucination).
-- Reported/rumored info is presented as confirmed, or attribution is missing.
-- The headline over-promises relative to the body.
-- Anyone is mocked or treated disrespectfully; layoffs/closures handled
-  without care.
-- It reads like a press release or like another outlet's copy.
-Return JSON: {"pass": bool, "issues": [str], "fix_instructions": str}"""
+draft against the pitch and decide if it is fit to publish.
+
+Reject (approved=false) only for MATERIAL problems:
+- A concrete factual claim (a date, number, price, name, quote) that does not
+  trace to the pitch facts — i.e. invented or speculative detail.
+- Reported/rumored info presented as confirmed fact, or a clear attribution
+  missing where another outlet broke the story.
+- A headline the body does not pay off.
+- Anyone mocked or treated with disrespect; layoffs/closures handled without
+  care for the people involved.
+- Prose that copies a source's phrasing rather than being original.
+
+Do NOT reject for matters of taste, structure, length, or reasonable framing
+of facts that ARE in the pitch. If the draft is accurate, fairly attributed,
+original, and respectful, approve it. Be specific: each issue must name the
+exact offending text so it can be fixed.
+
+Return JSON: {"approved": bool, "issues": [str], "fix_instructions": str}"""
 
 
 def review(draft: dict, pitch: dict) -> dict:
@@ -65,7 +84,7 @@ def review(draft: dict, pitch: dict) -> dict:
     clean_pitch = {k: v for k, v in pitch.items() if not k.startswith("_")}
     user = ("Pitch:\n" + json.dumps(clean_pitch, indent=2) +
             "\n\nDraft:\n" + json.dumps(draft, indent=2))
-    return ask_json("editor", REVIEW_SYSTEM, user, max_tokens=4000)
+    return ask_json("editor", REVIEW_SYSTEM, user, max_tokens=4000, schema=Verdict)
 
 
 def edit_gate(draft: dict, pitch: dict) -> dict:
@@ -77,7 +96,7 @@ def edit_gate(draft: dict, pitch: dict) -> dict:
         issues.append(f"Originality: shared phrases with sources: {orig['shared']}")
         fix += "Rewrite the flagged passages entirely in your own words. "
     llm = review(draft, pitch)
-    if not llm.get("pass", False):
+    if not llm.get("approved", False):
         issues += llm.get("issues", [])
         fix += llm.get("fix_instructions", "")
     return {"pass": not issues, "issues": issues, "fix": fix}

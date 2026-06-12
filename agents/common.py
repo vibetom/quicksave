@@ -40,7 +40,7 @@ def client() -> genai.Client:
 
 
 def ask(model_key: str, system: str, user: str, *, web_search: bool = False,
-        max_tokens: int = 4000, json_only: bool = False) -> str:
+        max_tokens: int = 4000, json_only: bool = False, schema=None) -> str:
     """One-shot call to Gemini. Returns the response text."""
     config = types.GenerateContentConfig(
         system_instruction=system,
@@ -56,6 +56,11 @@ def ask(model_key: str, system: str, user: str, *, web_search: bool = False,
         # JSON response mode can't be combined with search grounding,
         # so grounded calls rely on prompt + defensive parsing instead.
         config.response_mime_type = "application/json"
+        if schema is not None:
+            # Constrained decoding against a Pydantic schema — guarantees
+            # syntactically valid JSON even when a field (e.g. body_markdown)
+            # is full of quotes, newlines, and markdown.
+            config.response_schema = schema
     resp = client().models.generate_content(
         model=CONFIG["models"][model_key], contents=user, config=config)
     # Detect truncation up front so a too-small budget surfaces as a clear
@@ -72,25 +77,30 @@ def ask(model_key: str, system: str, user: str, *, web_search: bool = False,
 def ask_json(model_key: str, system: str, user: str, **kw) -> dict | list:
     """Call Gemini expecting a JSON reply.
 
-    Tolerant of markdown fences, leading/trailing prose, and unescaped control
-    characters inside strings — all of which the grounded scout response can
-    contain, since search grounding can't be combined with JSON output mode.
+    Pass schema=<PydanticModel> for constrained decoding (guaranteed-valid
+    JSON). Even so, parsing stays defensive — tolerant of markdown fences,
+    leading/trailing prose, and unescaped control characters — and the call is
+    retried once before giving up, since a stray malformed response shouldn't
+    sink the run.
     """
-    text = ask(model_key, system + "\nRespond with valid JSON only. "
-               "No prose, no markdown fences.", user, json_only=True, **kw)
-    text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
-    start = min((i for i in (text.find("{"), text.find("[")) if i >= 0), default=0)
-    try:
-        # raw_decode parses one value at `start` and ignores anything after
-        # it; strict=False allows raw newlines/tabs inside string values.
-        obj, _ = json.JSONDecoder(strict=False).raw_decode(text, start)
-        return obj
-    except json.JSONDecodeError as e:
-        # Surface the malformed region in the log so failures are debuggable.
-        ctx = text[max(0, e.pos - 200):e.pos + 200]
-        raise RuntimeError(
-            f"{model_key} returned unparseable JSON ({e.msg} at char {e.pos}). "
-            f"Context around the error:\n...{ctx}...") from e
+    last_err = None
+    for attempt in range(2):
+        text = ask(model_key, system + "\nRespond with valid JSON only. "
+                   "No prose, no markdown fences.", user, json_only=True, **kw)
+        text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
+        start = min((i for i in (text.find("{"), text.find("[")) if i >= 0),
+                    default=0)
+        try:
+            # raw_decode parses one value at `start` and ignores anything after
+            # it; strict=False allows raw newlines/tabs inside string values.
+            obj, _ = json.JSONDecoder(strict=False).raw_decode(text, start)
+            return obj
+        except json.JSONDecodeError as e:
+            last_err = (e, text[max(0, e.pos - 200):e.pos + 200])
+    e, ctx = last_err
+    raise RuntimeError(
+        f"{model_key} returned unparseable JSON ({e.msg} at char {e.pos}). "
+        f"Context around the error:\n...{ctx}...") from e
 
 
 def slugify(title: str) -> str:
