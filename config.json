@@ -9,7 +9,7 @@
     "articles_per_day": 5,
     "publish_window_start_hour": 7,
     "publish_window_end_hour": 22,
-    "max_retries_per_article": 3
+    "max_revisions": 3
   },
   "models": {
     "scout": "gemini-2.5-flash",

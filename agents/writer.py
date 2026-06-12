@@ -48,12 +48,27 @@ Editorial standards (verbatim from config):
 {standards}"""
 
 
-def write_article(pitch: dict, angle: dict) -> dict:
+def write_article(pitch: dict, angle: dict, *, prior_draft: dict | None = None,
+                  feedback: str = "", issues: list[str] | None = None) -> dict:
     system = SYSTEM.format(
         standards="\n".join(f"- {s}" for s in CONFIG["editorial_standards"]))
     user = (
         "Pitch (facts + sources):\n" + json.dumps(pitch, indent=2) +
-        "\n\nAngle:\n" + json.dumps(angle, indent=2) +
+        "\n\nAngle:\n" + json.dumps(angle, indent=2)
+    )
+    if prior_draft is not None:
+        # Revision pass: the editor sent the draft back with notes. Keep the
+        # angle and everything that already works; fix only the flagged issues.
+        notes = "\n".join(f"- {i}" for i in (issues or [])) or "(see instructions)"
+        user += (
+            "\n\nYour previous draft was sent back by the editor. Revise it to "
+            "address EVERY issue below, changing only what's needed and keeping "
+            "the rest intact. Return the COMPLETE corrected article.\n\n"
+            "Editor's issues:\n" + notes +
+            "\n\nFix instructions: " + feedback +
+            "\n\nPrevious draft:\n" + json.dumps(prior_draft, indent=2)
+        )
+    user += (
         "\n\nReturn JSON: {\"headline\": str, \"dek\": str, "
         "\"body_markdown\": str, \"tags\": [str], "
         "\"sources\": [{\"title\": str, \"url\": str}], "

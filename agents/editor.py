@@ -22,6 +22,7 @@ class Verdict(BaseModel):
     approved: bool
     issues: list[str]
     fix_instructions: str
+    fatal: bool = False
 
 
 _WORD = re.compile(r"[a-z0-9']+")
@@ -72,9 +73,18 @@ Reject (approved=false) only for MATERIAL problems:
 Do NOT reject for matters of taste, structure, length, or reasonable framing
 of facts that ARE in the pitch. If the draft is accurate, fairly attributed,
 original, and respectful, approve it. Be specific: each issue must name the
-exact offending text so it can be fixed.
+exact offending text so the writer can fix it on the next pass.
 
-Return JSON: {"approved": bool, "issues": [str], "fix_instructions": str}"""
+Most rejections are fixable by revision — set fatal=false and write
+fix_instructions the writer can act on. Set fatal=true ONLY when the story
+itself cannot be salvaged by editing, no matter how it is rewritten:
+- there is no actual news here (nothing confirmed or meaningfully reported),
+- the whole piece rests on unverified rumor presented as a story, or
+- the premise is inherently disrespectful or harmful.
+When fatal=true, still list the reason in issues.
+
+Return JSON: {"approved": bool, "issues": [str], "fix_instructions": str,
+"fatal": bool}"""
 
 
 def review(draft: dict, pitch: dict) -> dict:
@@ -99,4 +109,7 @@ def edit_gate(draft: dict, pitch: dict) -> dict:
     if not llm.get("approved", False):
         issues += llm.get("issues", [])
         fix += llm.get("fix_instructions", "")
-    return {"pass": not issues, "issues": issues, "fix": fix}
+    # Originality misses are always fixable by rewriting; only the standards
+    # editor can declare a premise fatally unpublishable.
+    return {"pass": not issues, "issues": issues, "fix": fix,
+            "fatal": bool(llm.get("fatal", False))}
