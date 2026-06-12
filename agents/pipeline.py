@@ -50,7 +50,12 @@ def _try_pitch(pitch: dict) -> dict | None:
     angle = develop_angle(pitch)
     draft = write_article(pitch, angle)
 
-    for attempt in range(CONFIG["cadence"]["max_retries_per_article"] + 1):
+    # Newsroom revision loop: the editor sends the draft back with notes and
+    # the writer revises (keeping the angle) until it's approved or we hit the
+    # revision cap. A fatal verdict — the premise itself is unpublishable —
+    # spikes the story immediately, no point revising.
+    max_rev = CONFIG["cadence"]["max_revisions"]
+    for rev in range(max_rev + 1):
         verdict = edit_gate(draft, pitch)
         if verdict["pass"]:
             article = {
@@ -63,11 +68,17 @@ def _try_pitch(pitch: dict) -> dict | None:
             log(f"PUBLISH: {article['headline']}  -> {path.name}")
             rebuild_site()
             return article
-        log(f"EDITOR: rejected ({len(verdict['issues'])} issues), "
-            f"retry {attempt + 1}")
-        pitch["_editor_feedback"] = verdict
-        draft = write_article(pitch, develop_angle(pitch))
-    log(f"DESK: '{pitch['topic']}' spiked after retries; trying next pitch.")
+        if verdict.get("fatal"):
+            reason = (verdict["issues"] or ["premise rejected"])[0]
+            log(f"DESK: '{pitch['topic']}' spiked on premise — {reason}")
+            return None
+        if rev == max_rev:
+            log(f"DESK: '{pitch['topic']}' spiked after {max_rev} revisions.")
+            return None
+        log(f"EDITOR: {len(verdict['issues'])} issue(s); back to the writer "
+            f"(revision {rev + 1}/{max_rev})")
+        draft = write_article(pitch, angle, prior_draft=draft,
+                              feedback=verdict["fix"], issues=verdict["issues"])
     return None
 
 
