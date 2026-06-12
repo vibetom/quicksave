@@ -34,28 +34,40 @@ def produce_one() -> dict | None:
         return None
 
     for pitch in pitches:  # try candidates in order until one clears the desk
-        log(f"ANGLE: developing take on '{pitch['topic']}'")
-        angle = develop_angle(pitch)
-        draft = write_article(pitch, angle)
-
-        for attempt in range(CONFIG["cadence"]["max_retries_per_article"] + 1):
-            verdict = edit_gate(draft, pitch)
-            if verdict["pass"]:
-                article = {
-                    **draft,
-                    "slug": slugify(draft["headline"]),
-                    "published_at": now_iso(),
-                    "byline": "QUICKSAVE editorial agents",
-                }
-                path = save_article(article)
-                log(f"PUBLISH: {article['headline']}  -> {path.name}")
-                rebuild_site()
+        try:
+            article = _try_pitch(pitch)
+            if article:
                 return article
-            log(f"EDITOR: rejected ({len(verdict['issues'])} issues), "
-                f"retry {attempt + 1}")
-            pitch["_editor_feedback"] = verdict
-            draft = write_article(pitch, develop_angle(pitch))
-        log(f"DESK: '{pitch['topic']}' spiked after retries; trying next pitch.")
+        except Exception as e:
+            # One bad pitch (a garbled model response, a transient API error)
+            # shouldn't sink the whole run — log it and move to the next.
+            log(f"DESK: '{pitch.get('topic', '?')}' errored ({e!r}); next pitch.")
+    return None
+
+
+def _try_pitch(pitch: dict) -> dict | None:
+    log(f"ANGLE: developing take on '{pitch['topic']}'")
+    angle = develop_angle(pitch)
+    draft = write_article(pitch, angle)
+
+    for attempt in range(CONFIG["cadence"]["max_retries_per_article"] + 1):
+        verdict = edit_gate(draft, pitch)
+        if verdict["pass"]:
+            article = {
+                **{k: v for k, v in draft.items() if not k.startswith("_")},
+                "slug": slugify(draft["headline"]),
+                "published_at": now_iso(),
+                "byline": "QUICKSAVE editorial agents",
+            }
+            path = save_article(article)
+            log(f"PUBLISH: {article['headline']}  -> {path.name}")
+            rebuild_site()
+            return article
+        log(f"EDITOR: rejected ({len(verdict['issues'])} issues), "
+            f"retry {attempt + 1}")
+        pitch["_editor_feedback"] = verdict
+        draft = write_article(pitch, develop_angle(pitch))
+    log(f"DESK: '{pitch['topic']}' spiked after retries; trying next pitch.")
     return None
 
 

@@ -64,20 +64,41 @@
     return "idle";
   }
 
-  function nextSlotDelta() {
-    var h = nowUTC(), best = null;
+  // The soonest upcoming publish slot as a real Date (handles the day
+  // rollover), so we can render it in any timezone the viewer prefers.
+  function nextSlotDate() {
+    var now = new Date(), best = null;
     for (var i = 0; i < D.slots.length; i++) {
-      var d = D.slots[i] - h;
-      if (d > 0 && (best === null || d < best)) best = d;
+      var s = D.slots[i];
+      var d = new Date(now);
+      d.setUTCHours(Math.floor(s), Math.round((s % 1) * 60), 0, 0);
+      if (d <= now) d.setUTCDate(d.getUTCDate() + 1); // already passed today
+      if (best === null || d < best) best = d;
     }
-    if (best === null) best = D.slots[0] + 24 - h; // tomorrow's first slot
     return best;
   }
 
-  function fmtDelta(hours) {
-    var m = Math.max(1, Math.round(hours * 60));
+  function fmtDelta(ms) {
+    var m = Math.max(1, Math.round(ms / 60000));
     var hh = Math.floor(m / 60), mm = m % 60;
     return hh > 0 ? hh + "h " + mm + "m" : mm + "m";
+  }
+
+  // Timezone mode: "local" (auto-detected) or "utc". Persisted across visits.
+  var tzMode = "local";
+  try { tzMode = localStorage.getItem("qs_tz") || "local"; } catch (e) {}
+
+  function fmtClock(date) {
+    if (tzMode === "utc") {
+      return ("0" + date.getUTCHours()).slice(-2) + ":" +
+             ("0" + date.getUTCMinutes()).slice(-2) + " UTC";
+    }
+    try {
+      return date.toLocaleTimeString([], {
+        hour: "numeric", minute: "2-digit", timeZoneName: "short" });
+    } catch (e) {
+      return date.toLocaleTimeString();
+    }
   }
 
   var TICK_MS = 7000;
@@ -125,9 +146,13 @@
     var agent = entry[0], text = entry[1];
 
     setAll("data-desk-now", agent.toUpperCase() + " // " + text);
-    setAll("data-desk-next", ph === "publish"
-      ? "publish window open now"
-      : "next publish window in " + fmtDelta(nextSlotDelta()));
+    if (ph === "publish") {
+      setAll("data-desk-next", "publish window open now");
+    } else {
+      var next = nextSlotDate();
+      setAll("data-desk-next", "next publish · " + fmtClock(next) +
+        " · in " + fmtDelta(next - new Date()));
+    }
 
     // Live Desk page extras: highlight the active agent + roll the log.
     if (document.getElementById("desk-board")) {
@@ -140,6 +165,22 @@
       }
       appendLog(agent, text);
     }
+  }
+
+  // Timezone toggle (Live Desk page). Flips local <-> UTC and remembers it.
+  function syncToggle() {
+    var btn = document.querySelector("[data-desk-tz-toggle]");
+    if (btn) btn.textContent = tzMode === "utc" ? "Show in my time" : "Show in UTC";
+  }
+  var toggle = document.querySelector("[data-desk-tz-toggle]");
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      tzMode = tzMode === "utc" ? "local" : "utc";
+      try { localStorage.setItem("qs_tz", tzMode); } catch (e) {}
+      syncToggle();
+      update();
+    });
+    syncToggle();
   }
 
   update();
