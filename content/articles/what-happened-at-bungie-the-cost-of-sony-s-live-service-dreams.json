@@ -1,0 +1,38 @@
+{
+  "headline": "What Happened at Bungie? The Cost of Sony's Live-Service Dreams",
+  "dek": "New reports and financial disclosures paint a picture of a studio in crisis and a live-service strategy that hasn't quite clicked, even for a juggernaut like Sony.",
+  "body_markdown": "Bungie, the storied studio behind *Destiny 2* and the recently launched *Marathon*, finds itself at a crossroads. Recent reports and financial statements suggest a complex web of struggles, casting a long shadow over Sony's ambitious push into live-service gaming.\n\nThe acquisition of Bungie by Sony was, according to a former *Destiny 2* developer speaking to Windows Central, an \"emergency rescue.\" This source indicated that without Sony's intervention, the studio was reportedly \"very close to shutting its doors.\" This alarming detail offers a new perspective on the initial $3.6 billion deal, suggesting it was less about expansion and more about critical intervention.\n\nFinancial disclosures from Sony further underscore these difficulties. The company recorded a substantial $765 million impairment loss for Bungie. A significant portion of this, $560 million, occurred in the same fiscal quarter that *Marathon* launched. An impairment loss essentially means that the value of an asset on a company's balance sheet has been reduced, signaling that the asset is not performing as expected.\n\nAdding to the narrative of change, active development for *Destiny 2* officially concluded on June 9, 2026. While the game will remain playable in a \"maintenance mode\" without new expansions or seasons, its departure from active development marks the end of an era. Notably, the final update for *Destiny 2* still commanded an impressive 167,867 concurrent players on Steam, a figure nearly double the peak concurrency seen by Bungie's new flagship title.\n\nThat new flagship is *Marathon*, an extraction shooter that hit the market on March 5, 2026. It garnered largely positive critical reviews, reflected in an 81 Metacritic score, and moved between 1.2 million and 2.2 million copies during its initial month. However, its player retention has raised questions. *Marathon*'s all-time peak concurrent player count on Steam reached approximately 88,337 at launch. In the weeks leading up to its Season 2 launch, daily active players had reportedly dropped to a range of 8,000 to 10,000, as reported by PC Gamer.\n\nSony has yet to greenlight *Destiny 3* or any direct successor to *Destiny 2*. Furthermore, a *Destiny* spinoff codenamed \"Payback\" was reportedly canceled after the acquisition, with veteran designers Luke Smith and Mark Noseworthy subsequently departing Bungie. These shifts, alongside three reported rounds of layoffs at Bungie—affecting around 100 employees in October 2023, 220 in July 2024, and an undisclosed number in May 2026—point to significant internal restructuring and uncertainty.\n\nBungie's struggles are not isolated, but rather appear to be part of a broader challenge for Sony's live-service ambitions. Former Sony CEO Jim Ryan had outlined plans for a dozen live-service games to launch by 2025. By early 2026, this strategy yielded only one clear hit, *Helldivers 2*, alongside seven cancellations, a \"spectacular failure\" in *Concord*, and three titles whose development status remains uncertain, according to PC Gamer. The closure of Bluepoint Games in March 2026, following its redirection to live-service development and the cancellation of its *God of War* live-service project, further illustrates the volatility of this market. The path to live-service success, even for a titan like Sony, is proving to be a difficult one.",
+  "tags": [
+    "Bungie",
+    "Sony",
+    "Live-Service Games",
+    "Destiny 2",
+    "Marathon",
+    "Layoffs",
+    "Gaming Industry"
+  ],
+  "sources": [
+    {
+      "title": "Sony Bungie Acquisition Called Emergency Rescue: Studio Was Near Collapse Before $3.6B Deal - Tech Times",
+      "url": "https://www.techtimes.com/articles/308191/20240905/sony-bungie-acquisition-called-emergency-rescue-studio-was-near-collapse-3-6b.htm"
+    },
+    {
+      "title": "'It was an emergency acquisition': Former Destiny 2 dev says if Sony didn't buy Bungie, the studio would have been 'very close to shutting its doors' | Windows Central",
+      "url": "https://www.windowscentral.com/gaming/it-was-an-emergency-acquisition-former-destiny-2-dev-says-if-sony-didnt-buy-Bungie-the-studio-would-have-been-very-close-to-shutting-its-doors"
+    },
+    {
+      "title": "2026 in video games - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/2026_in_video_games#Q1_2026_notable_events"
+    },
+    {
+      "title": "New games in June 2026: It's a big month for Bungie and showcase reveals - PC Gamer",
+      "url": "https://www.pcgamer.com/games/new-games-2026-release-dates/"
+    }
+  ],
+  "read_minutes": 5,
+  "section": "features",
+  "topic": "Bungie's Struggles and Sony's Live-Service Push",
+  "slug": "what-happened-at-bungie-the-cost-of-sony-s-live-service-dreams",
+  "published_at": "2026-06-13T18:53:06+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
