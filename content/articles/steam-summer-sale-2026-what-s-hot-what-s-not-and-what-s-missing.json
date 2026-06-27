@@ -1,0 +1,32 @@
+{
+  "headline": "Steam Summer Sale 2026: What's Hot, What's Not, and What's Missing",
+  "dek": "Dive into the annual Steam Summer Sale with all the details on dates, discounts, new badges, and a key change to how you earn cards.",
+  "body_markdown": "The Steam Summer Sale 2026 has officially kicked off, inviting players to dive into a fortnight of deep discounts and new ways to personalize their profiles. The sale, a perennial highlight for PC gamers, runs from June 25 and will wrap up on July 9, 2026, at 10 AM Pacific. All released games available on Steam are eligible for participation, meaning a vast library of titles is now more accessible.\n\nCatching those desired deals should be simpler this year, thanks to an automatic notification system. If a game on your personal wishlist receives a discount of 20% or more, Steam will automatically send an email to alert you. This means fewer missed opportunities and more time playing, less time checking.\n\nFor those who enjoy collecting and customizing, the Summer Sale 2026 introduces a brand new Trading Card Badge. This limited-time item offers a distinct cosmetic touch to player profiles. Crafting this new badge provides a generous 100 profile level experience, along with a random sale-themed background and emoticon for each level achieved. Players can craft this badge an unlimited number of times, making it a robust avenue for leveling up and unlocking unique visuals.\n\nHowever, a notable shift for card collectors is the removal of the daily free trading cards that were previously available through the Discovery Queue. This change means that players looking to acquire cards for the new Summer Sale 2026 badge will need to adjust their collection strategies. Historically, seasonal badges, such as those introduced during the summer and winter sales, have been Points Shop-exclusive Profile Badges, continuing a tradition of unique, time-limited customization options.",
+  "tags": [
+    "Steam",
+    "Summer Sale",
+    "PC Gaming",
+    "Deals",
+    "Trading Cards"
+  ],
+  "sources": [
+    {
+      "title": "Steamworks Documentation",
+      "url": ""
+    },
+    {
+      "title": "Steamworks Development",
+      "url": ""
+    },
+    {
+      "title": "Reddit (r/Steam)",
+      "url": ""
+    }
+  ],
+  "read_minutes": 2,
+  "section": "news",
+  "topic": "Steam Summer Sale 2026",
+  "slug": "steam-summer-sale-2026-what-s-hot-what-s-not-and-what-s-missing",
+  "published_at": "2026-06-27T18:42:41+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
