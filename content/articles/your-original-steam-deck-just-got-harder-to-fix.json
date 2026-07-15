@@ -1,0 +1,29 @@
+{
+  "headline": "Your Original Steam Deck Just Got Harder To Fix",
+  "dek": "Valve is sunsetting official replacement parts for the Steam Deck LCD, and its repair partner iFixit says OEM batteries are already drying up. What now?",
+  "body_markdown": "Owners of the original Steam Deck LCD model are facing a new challenge in keeping their handhelds running. Valve, it seems, has begun to wind down official support for replacement parts, with batteries for the launch model already becoming scarce.\n\nAccording to a comment on Reddit by iFixit, Valve's official repair partner, the company no longer anticipates regular shipments of OEM (Original Equipment Manufacturer) batteries for the original Steam Deck LCD. iFixit explicitly stated that Valve is \"just starting to sunset these parts,\" a concerning development for a device that launched in February 2022.\n\nThis decision arrives just over four years after the Steam Deck first hit the market. It marks a notable shift from Valve's earlier commitment to repairability. Back in May 2022, Valve teamed up with iFixit to offer official parts and detailed repair guides, a partnership that resonated with the burgeoning right-to-repair movement.\n\nFor those still clutching their original LCD Decks, the news means a critical component — the battery, a wear item destined for eventual replacement — will be significantly harder to source directly from Valve's official channels. This poses a quandary for users who expected a longer lifecycle of official support.\n\nHowever, there's a potential silver lining. iFixit confirmed they are actively exploring aftermarket, or third-party, battery options for the Steam Deck LCD. This initiative could provide a vital lifeline for players looking to extend the life of their handhelds without official OEM parts.\n\nThis move by Valve follows a broader strategy shift. Late last year, Valve announced it was discontinuing the original Steam Deck LCD model entirely, stating it would no longer be available once existing stock was depleted. Many in the industry attributed this decision to factors such as rising component costs and the inherent difficulty of repairing the original model's battery compared to its successor, the Steam Deck OLED. While the device itself remains functional, the path to keeping it in peak condition is now a little bumpier.",
+  "tags": [
+    "Steam Deck",
+    "Valve",
+    "iFixit",
+    "Hardware",
+    "Repairability",
+    "Gaming Handhelds"
+  ],
+  "sources": [
+    {
+      "title": "iFixit Reddit Comment",
+      "url": "reddit.com/r/ifixit"
+    },
+    {
+      "title": "Valve Official Announcement",
+      "url": "steamdeck.com"
+    }
+  ],
+  "read_minutes": 3,
+  "section": "news",
+  "topic": "Valve Discontinues Steam Deck LCD Parts",
+  "slug": "your-original-steam-deck-just-got-harder-to-fix",
+  "published_at": "2026-07-15T12:50:27+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
