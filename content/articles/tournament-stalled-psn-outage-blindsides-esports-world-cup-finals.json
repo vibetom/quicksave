@@ -1,0 +1,27 @@
+{
+  "headline": "Tournament Stalled: PSN Outage Blindsides Esports World Cup Finals",
+  "dek": "A critical PlayStation Network failure, reportedly linked to AWS, forced the postponement of the EA Sports FC 26 finals at the Esports World Cup, leaving high-stakes competitors and thousands of players in limbo.",
+  "body_markdown": "The deciding day of the EA Sports FC 26 tournament at the Esports World Cup faced an unexpected halt on July 24, 2026, as a significant PlayStation Network (PSN) outage brought competition to a standstill. The disruption forced organizers to postpone the final matches, casting a shadow over a tournament with over $1 million in prize money on the line, where even the top eight finishers are guaranteed $40,000 each. Two competitors, Levy Rieck and Matías Bonanno, were heading into the disruption with perfect 4-0 records, according to shattered.io.\n\nThe widespread PSN outage, which reportedly stemmed from a failure within Amazon Web Services' US-West-2 region, affected thousands of players beyond the tournament arena. Users reported issues extending beyond mere matchmaking, impacting access to their digital libraries as well. The Esports Foundation's initial public statement offered little clarity, noting only that competition would resume \"live soon\" without providing a firm timeframe. The remaining League Stage matches have since been rescheduled to July 25, with games set to restart at 1:00 p.m. CEST, pushing the tournament past its originally planned July 26 conclusion.\n\nThis incident marks the seventh confirmed PSN disruption since March 21, 2026, creating a concerning pattern of unreliability. This means players have experienced roughly one PSN incident every three weeks for four consecutive months, as reported by shattered.io. While tracking services may differ slightly on what constitutes a full \"outage\" versus smaller blips, the core timeline of documented issues remains consistent.\n\nAdding to player frustration, Sony has not provided explanations, timelines, or compensation for any of these seven 2026 incidents. In contrast, Sony did offer compensation for a February 2025 outage and famously after the 2011 breach. The lack of communication or restorative action for these recent, frequent disruptions is a notable change in approach, leaving players and now, high-stakes esports competitors, in an uncertain position. The human element of these delays is profound; athletes who have trained rigorously for events like the Esports World Cup now face an unexpected pause due to platform instability.",
+  "tags": [
+    "Esports World Cup",
+    "PlayStation Network",
+    "PSN Outage",
+    "EA Sports FC 26",
+    "Sony",
+    "AWS",
+    "Esports",
+    "Gaming News"
+  ],
+  "sources": [
+    {
+      "title": "shattered.io",
+      "url": "shattered.io"
+    }
+  ],
+  "read_minutes": 3,
+  "section": "news",
+  "topic": "PlayStation Network Outage at Esports World Cup",
+  "slug": "tournament-stalled-psn-outage-blindsides-esports-world-cup-finals",
+  "published_at": "2026-07-26T15:36:50+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
