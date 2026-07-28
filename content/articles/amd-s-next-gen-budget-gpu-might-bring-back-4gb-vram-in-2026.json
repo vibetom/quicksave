@@ -1,0 +1,27 @@
+{
+  "headline": "AMD's Next-Gen Budget GPU Might Bring Back 4GB VRAM in 2026",
+  "dek": "A brief ASRock listing spills the beans on the rumored Radeon RX 9050, revealing an entry-level RDNA 4 card with surprising VRAM configurations and lower power demands.",
+  "body_markdown": "AMD appears to be preparing a new entry-level GPU in its RDNA 4 lineup, the Radeon RX 9050, which recently surfaced via a brief ASRock listing. The details, first reported by Tom's Hardware, suggest a card aimed squarely at budget-conscious PC builders and prebuilt systems, potentially slated for a 2026 release. What's raising eyebrows at the QUICKSAVE desk, however, is a reported return to a VRAM configuration not widely seen in new GPUs for years.\n\nThe ASRock listing for the RX 9050 showed two distinct configurations: an 8GB VRAM variant and a 4GB VRAM option. The 4GB VRAM configuration is particularly notable, as this memory capacity has largely receded from the mainstream GPU market since 2022. This move could signal AMD's intent to capture an even more accessible price point for its next generation of graphics cards.\n\nThe RX 9050 is reportedly built around a cut-down Navi 44 GPU, similar to what we might expect from the RX 9060 series, albeit with scaled-back specifications. According to the leak, the ASRock Challenger variant of the RX 9050 features a base clock of 1,920 MHz and a boost clock reaching 2,600 MHz. These speeds, combined with a recommended 450W power supply, suggest a GPU that sips power compared to its more robust siblings; the RX 9060, for example, is said to recommend a 500W PSU.\n\nEvidence of the 4GB RX 9050's intended market is already emerging. The card has reportedly been spotted in a CyberPower prebuilt system listed on Best Buy, carrying a price tag of $900 for the entire PC. This placement strongly indicates that AMD is targeting entry-level gaming PCs and more affordable system builds, where every component choice is scrutinized for cost efficiency.\n\nWhile the prospect of an affordable RDNA 4 GPU is certainly appealing, especially for those looking to upgrade older systems without breaking the bank, the reintroduction of 4GB VRAM in 2026 brings with it some significant questions. Modern game titles are increasingly demanding more memory, and a 4GB buffer might quickly become a bottleneck, potentially limiting the GPU's longevity and performance capabilities for upcoming releases. It's a trade-off: a lower barrier to entry versus future-proofing.\n\nOn the brighter side, the RX 9050's lower power requirements could make it an attractive option for users with older power supplies or those building in smaller form factor cases where thermal and power constraints are tighter. This could carve out a specific niche for the card, offering an upgrade path where more powerful, power-hungry GPUs might not fit. We'll be keeping a close eye on further developments as AMD's RDNA 4 plans continue to unfold.",
+  "tags": [
+    "AMD",
+    "Radeon",
+    "RX 9050",
+    "GPU",
+    "Leak",
+    "Hardware",
+    "Gaming PC",
+    "RDNA 4"
+  ],
+  "sources": [
+    {
+      "title": "Leaked Radeon RX 9050 hints at the return of 4GB VRAM GPUs in 2026 — new budget RDNA 4 card also spotted in 8GB config with half the power of an RX 9060 | Tom's Hardware",
+      "url": "https://www.tomshardware.com/pc-components/gpus/leaked-radeon-rx-9050-hints-at-the-return-of-4gb-vram-gpus-in-2026-new-budget-rdna-4-card-also-spotted-in-8gb-config-with-half-the-power-of-an-rx-9060"
+    }
+  ],
+  "read_minutes": 3,
+  "section": "news",
+  "topic": "AMD Radeon RX 9050 Leak",
+  "slug": "amd-s-next-gen-budget-gpu-might-bring-back-4gb-vram-in-2026",
+  "published_at": "2026-07-28T13:08:28+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
