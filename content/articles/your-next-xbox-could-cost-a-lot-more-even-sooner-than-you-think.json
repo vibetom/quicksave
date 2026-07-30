@@ -1,0 +1,33 @@
+{
+  "headline": "Your Next Xbox Could Cost a Lot More (Even Sooner Than You Think)",
+  "dek": "Reports suggest significant price hikes for Xbox Series X|S are coming by August 2026, driven by a 'RAMpocalypse' affecting the entire hardware market, and even at higher prices, Microsoft might still be losing money.",
+  "body_markdown": "Xbox users may need to prepare for a substantial increase in hardware prices, with reports indicating current-generation consoles could become significantly more expensive by August 2026. This potential shift is part of a broader trend impacting the entire tech industry, driven by escalating memory costs.\n\nAccording to reporting by GAMINGbible, citing Windows Central's Jez Corden, the Xbox Series X, which launched at $499.99, is projected to reach $799.99 by August 2026. The more affordable Xbox Series S, initially priced at $299.99, is reportedly headed towards a $499.99 tag in the same timeframe.\n\nThese anticipated price adjustments are largely attributed to a phenomenon Corden calls the 'RAMpocalypse.' This refers to a widespread memory shortage that has driven up the cost of DRAM and NAND flash-based components. These crucial parts are essential for everything from memory kits and SSDs to graphics cards, making them more expensive to produce across the board, as noted by ApexPCs.\n\nWhat's particularly striking is that even with these reported price hikes, Microsoft is still allegedly facing a loss of about $150 on each Xbox Series X|S console sold. This detail, also reported by GAMINGbible, underscores the severe impact that rising memory prices are having on manufacturing costs for console hardware.\n\nThe challenge isn't exclusive to Xbox. The entire PC hardware market is feeling the squeeze. Intel, for example, has confirmed price increases on select desktop and server processors due to higher manufacturing costs and sustained demand, according to ApexPCs. This market-wide trend means that building a new gaming PC has also become more expensive, with Wccftech reporting that a 'decent' new gaming PC now realistically starts around $1,000.\n\nLooking further ahead, the rumored next-generation 'Xbox Helix' platform could face similar pricing pressures. GAMINGbible's reporting suggests that if 'Helix' adopts an 'open' PC-like model, it might need to be priced similarly, signaling a future where both console and PC gaming hardware could command higher price tags.",
+  "tags": [
+    "Xbox",
+    "Hardware",
+    "Price Increase",
+    "Gaming Industry",
+    "Memory Shortage",
+    "RAMpocalypse"
+  ],
+  "sources": [
+    {
+      "title": "Xbox hardware on track for more price-hikes as 'RAMpocalypse' worsens - GAMINGbible",
+      "url": "GAMINGbible"
+    },
+    {
+      "title": "PC Hardware News July 2026 | GPU & CPU Updates - ApexPCs",
+      "url": "ApexPCs"
+    },
+    {
+      "title": "Wccftech",
+      "url": "Wccftech"
+    }
+  ],
+  "read_minutes": 4,
+  "section": "news",
+  "topic": "Xbox Hardware Price Hikes and 'RAMpocalypse'",
+  "slug": "your-next-xbox-could-cost-a-lot-more-even-sooner-than-you-think",
+  "published_at": "2026-07-30T10:37:45+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
