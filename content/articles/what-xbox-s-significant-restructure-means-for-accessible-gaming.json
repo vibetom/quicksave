@@ -1,0 +1,28 @@
+{
+  "headline": "What Xbox's 'Significant Restructure' Means for Accessible Gaming",
+  "dek": "Recent layoffs disproportionately affected accessibility teams, leaving many to wonder about the future of disabled players on the platform.",
+  "body_markdown": "Xbox has embarked on what CEO Asha Sharma described as \"the most significant restructure in Xbox history,\" announcing the immediate layoff of 1600 full-time employees on July 6th, 2026, with an additional 1600 cuts anticipated through the company's fiscal year 2027. These sweeping changes, confirmed by GameSpot, have unfortunately had a concentrated impact on accessibility teams across various departments and studios within Xbox.\n\nThe timing of these layoffs, at the start of Disability Pride Month, has drawn particular scrutiny. According to GameSpot, the Microsoft Gaming Accessibility Testing Services (MGATS), a vital resource composed of disabled players who tested games and maintained accessibility tags on the Xbox storefront, has been effectively dismantled. Its testers and leads are no longer with the company. Senior and lead accessibility specialists have also publicly confirmed their inclusion in the layoffs, as reported by GameSpot.\n\nThe repercussions for future game development and player experience could be substantial. Former employees indicate that without MGATS, studios may struggle to secure precise accessibility reports or dependable data concerning accessibility tags, according to GameSpot. This could erode the reliability of information available to disabled players navigating the Xbox storefront.\n\nAdding to the uncertainty, some reports suggest that staff previously dedicated to accessibility roles have been reassigned to their original teams, and accessibility work for certain Xbox games has been abruptly halted, GameSpot noted. This raises questions about the ongoing commitment to inclusive design in upcoming titles. Researchers, many of them contractors, who ensured accessible features were functional for disabled individuals, were also impacted by these cuts, GameSpot reported.\n\nDespite these profound organizational shifts, Microsoft issued a statement to GameSpot asserting that \"Accessibility remains a priority for Xbox.\" The company conveyed that while adjustments were made to various teams, its dedication to crafting more accessible gaming experiences for players remains undiminished. However, the scale of the cuts, particularly within accessibility-focused roles, has prompted many to question the practical implications of this statement for disabled players. GameSpot suggests that the full effect of these changes on disabled players may not become apparent for some time. The contrast between corporate assurances and the immediate dismantling of key accessibility infrastructure creates a significant point of concern for the platform's future in accessible gaming.",
+  "tags": [
+    "Xbox",
+    "Accessibility",
+    "Layoffs",
+    "Industry News",
+    "Disability Pride Month"
+  ],
+  "sources": [
+    {
+      "title": "GameSpot",
+      "url": ""
+    },
+    {
+      "title": "Kotaku",
+      "url": ""
+    }
+  ],
+  "read_minutes": 3,
+  "section": "news",
+  "topic": "Xbox Accessibility Layoffs",
+  "slug": "what-xbox-s-significant-restructure-means-for-accessible-gaming",
+  "published_at": "2026-07-31T13:13:06+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
