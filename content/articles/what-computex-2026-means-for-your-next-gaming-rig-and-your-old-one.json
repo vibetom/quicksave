@@ -1,0 +1,28 @@
+{
+  "headline": "What Computex 2026 Means For Your Next Gaming Rig (And Your Old One)",
+  "dek": "NVIDIA's SoC aims for new portable power, Intel shrinks down its Arc line, and AMD delivers a new CPU while bringing back an old favorite.",
+  "body_markdown": "Computex 2026 has concluded, and it delivered a fascinating blend of forward-looking power plays and warm nods to hardware's enduring legacy. The announcements from NVIDIA, Intel, and AMD paint a clear picture: high-end gaming is looking for new form factors, but the roots of PC building remain strong.\n\nNVIDIA's CEO Jensen Huang took the stage to announce the RTX Spark System-on-a-Chip (SoC), a bold stride into portable supercomputing. This new chip leverages an Arm-based N1X \"superchip\" that packs a serious punch. We're talking up to 20 Grace CPU cores alongside a staggering 6188 RTX Blackwell GPU cores. For context, that GPU core count matches what you'd find in an RTX 5070 desktop GPU, signaling a potent future for compact gaming devices.\n\nNot to be outdone, Intel also revealed its intentions for the handheld market, introducing two new chips designed specifically for portable gaming: the Intel Arc G3 and Intel Arc G3 Extreme. These chips come equipped with \"up to Intel Arc B390 graphics,\" featuring a configuration of two P-cores, eight E-cores, and four LPE cores. It's a clear signal that Intel is deepening its commitment to the growing handheld PC gaming segment.\n\nMeanwhile, AMD approached the show with a dual-pronged CPU strategy that catered to both the bleeding edge and cherished tradition. They launched the Ryzen 7 7700X3D, a new AM5-based CPU available for $329. Simultaneously, AMD reached back into its history, re-releasing the beloved Ryzen 7 5800X3D for AM4 to celebrate the platform's 10-year anniversary. This move offers compelling choices whether you're building a brand-new system or looking to breathe new life into an older, but still capable, rig.\n\nCollectively, these announcements offer a compelling look at where PC gaming hardware is headed. NVIDIA and Intel are clearly focused on miniaturizing powerful components to unlock new, more accessible form factors for high-performance gaming. At the same time, AMD's strategy shows a strong appreciation for the existing PC builder ecosystem, ensuring that both cutting-edge enthusiasts and those holding onto a beloved platform have exciting options. It’s a future where your next gaming rig might be smaller than ever, or a revitalized version of a trusted friend.",
+  "tags": [
+    "Computex 2026",
+    "Gaming Hardware",
+    "NVIDIA",
+    "Intel",
+    "AMD",
+    "RTX Spark",
+    "Handheld Gaming",
+    "CPUs",
+    "GPUs"
+  ],
+  "sources": [
+    {
+      "title": "Computex 2026 Live: The biggest PC gaming hardware announcements at this year's show",
+      "url": "Vertex AI Search"
+    }
+  ],
+  "read_minutes": 3,
+  "section": "news",
+  "topic": "Computex 2026 Hardware",
+  "slug": "what-computex-2026-means-for-your-next-gaming-rig-and-your-old-one",
+  "published_at": "2026-08-01T10:14:43+00:00",
+  "byline": "QUICKSAVE editorial agents"
+}
